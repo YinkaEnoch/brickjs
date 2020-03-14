@@ -7,19 +7,19 @@ export default {
     output: [
         {
             file: pkg.main,
-            format: 'cjs'
+            format: 'cjs',
+            sourcemap: false,
+            exports: named
         },
         {
             file: pkg.module,
             format: 'es'
         }
     ],
-    external:[
-        ...Object.keys(pkg.dependencies || {})
-    ],
     plugins:[
         typescript({
-            typescript: require('typescript')
+            typescript: require('typescript'),
+            clean: true
         }),
         terser() // minify generated bundles
     ]

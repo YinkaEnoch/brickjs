@@ -4,10 +4,15 @@
   "private": true,
   "description": "A simple functional and modular JavaScript library",
   "main": "dist/index.js",
+  "module": "dist/index.es.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "rollup -c",
+    "test": "jest --coverage"
   },
+  "files": [
+    "dist/"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/YinkaEnoch/brickjs.git"
@@ -27,21 +32,21 @@
     "url": "https://github.com/YinkaEnoch/brickjs/issues"
   },
   "homepage": "https://github.com/YinkaEnoch/brickjs#readme",
+  "jest":{
+    "preset": "ts-jest",
+    "testEnvironment": "node"
+  },
   "devDependencies": {
     "@types/jest": "^25.1.4",
     "@types/node": "^13.9.1",
     "jest": "^25.1.0",
     "prettier": "^1.19.1",
     "rollup": "^2.0.6",
-    "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-terser": "^5.3.0",
     "rollup-plugin-typescript2": "^0.26.0",
     "ts-jest": "^25.2.1",
     "ts-lint": "^4.5.1",
     "tslint-config-prettier": "^1.18.0",
     "typescript": "^3.8.3"
-  },
-  "files": [
-    "dist/"
-  ]
+  }
 }
