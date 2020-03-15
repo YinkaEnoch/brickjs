@@ -5,7 +5,7 @@
  interface ElementInterface{
      elementType: string;
      elementText?: string;
-     elementClass?: string[];
+     elementClass?: string | string[];
      elementId?: string;
      elementName?: string;
      innerHTML?: string;
@@ -49,7 +49,7 @@
     // Append Class(es)
     if(elementClass){
         if(typeof elementClass === 'object'){
-            elementClass.forEach((_class: any) =>{
+            elementClass.forEach((_class: string | string[]) =>{
                 // check if child is also an array
                 if(typeof _class === 'object'){
                     _class.forEach((innerClass: string) =>{

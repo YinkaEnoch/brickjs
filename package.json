@@ -32,7 +32,7 @@
     "url": "https://github.com/YinkaEnoch/brickjs/issues"
   },
   "homepage": "https://github.com/YinkaEnoch/brickjs#readme",
-  "jest":{
+  "jest": {
     "preset": "ts-jest",
     "testEnvironment": "node"
   },
