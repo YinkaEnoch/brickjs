@@ -10,11 +10,12 @@
      elementName?: string;
      innerHTML?: string;
      otherAttr?: object;
+	 listener?: [{on: string, callback: any}];
  }
 
  const createHTMLElement = (params: ElementInterface)=>{
     //  destructure params
-     const {elementType, elementClass, elementId, elementName, elementText, innerHTML, otherAttr} = params;
+     const {elementType, elementClass, elementId, elementName, elementText, innerHTML, otherAttr, listener} = params;
 
     //  Element variable
     let newElement: any = null;
@@ -63,6 +64,16 @@
             newElement.className = elementClass;
         }
     }
+
+		// Attach event listener(s)
+		if(listener){
+			listener.forEach(event => {
+				if(event.on && (typeof event.callback).toLowerCase() === 'function'){
+					const {on, callback} = event;
+					newElement.addEventListener(`${on}`, callback);
+				} else { console.error(new Error('Wrong parameters.'))}
+			});
+		}
 
     return newElement;
  }
